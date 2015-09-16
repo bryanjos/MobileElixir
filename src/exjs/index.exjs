@@ -1,0 +1,54 @@
+defmodule Index do
+  JS.import React, "react-native"
+
+  styles = React.StyleSheet.create(%{
+    "container" => %{
+      "flex" => 2,
+      "justifyContent" => "center",
+      "alignItems" => "center",
+      "backgroundColor" => "#F5FCFF",
+    },
+    "welcome" => %{
+      "fontSize" => 20,
+      "textAlign" => "center",
+      "margin" => 10,
+    },
+    "instructions" => %{
+      "textAlign" => "center",
+      "color" => "#333333",
+      "marginBottom" => 5,
+    }
+  })
+
+  def mobileElixir() do
+    React.createClass(%{
+      "render" => fn() ->
+        React.createElement(
+          React.View, 
+          %{"style" => styles.container},
+          React.createElement(
+            React.Text,
+            %{"style" => styles.welcome},
+            "Welcome to React Native"
+          ),
+          React.createElement(
+            React.Text,
+            %{"style" => styles.instructions},
+            "To get started, edit index.ios.js"
+          ),
+          React.createElement(
+            React.Text,
+            %{"style" => styles.instructions},
+            """
+            Press Cmd+R to reload, Cmd+D or shake for dev menu
+            """
+          )
+        )
+      end
+    })
+  end
+
+  React.AppRegistry.registerComponent("MobileElixir", fn() -> 
+    mobileElixir()
+  end);
+end
